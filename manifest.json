@@ -1,0 +1,58 @@
+Robot
+Hey Aleksei, Quick input needed :
+Perfect!
+
+🚀 ГОТОВОЕ РЕШЕНИЕ для получения APK:
+Поскольку service-worker.js не работает на Expo dev URL, используем GitHub Pages:
+
+📋 Быстрая инструкция:
+Создайте репозиторий на GitHub:
+
+https://github.com/new
+Название: family-chat-pwa
+Тип: Public
+Создайте эти 4 файла в репозитории:
+
+Файл 1: index.html
+
+<!DOCTYPE html><html  lang="ru"><head><title data-rh="true"></title><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="description" content="Приватная семейная социальная сеть и мессенджер"/><meta name="theme-color" content="#2196F3"/><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="default"/><meta name="apple-mobile-web-app-title" content="СемьяСвязь"/><link rel="manifest" href="/manifest.json"/><link rel="icon" href="/favicon.ico"/><link rel="apple-touch-icon" href="/icon.png"/><script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(function(registration) {
+        console.log('Service Worker зарегистрирован:', registration.scope);
+      })
+      .catch(function(error) {
+        console.log('Ошибка регистрации Service Worker:', error);
+      });
+  });
+}
+</script></head><body><div id="root"><div style="display:flex;flex-direction:column;justify-content:center;align-items:center;height:100vh;background:linear-gradient(135deg,#2196F3,#21CBF3);color:white;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif"><h1 style="font-size:2.5rem;margin-bottom:20px">Семья на связи</h1><p style="font-size:1.2rem;margin-bottom:30px">Приватная семейная социальная сеть</p><div style="background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border-radius:20px;padding:40px;max-width:400px;width:90%"><input type="email" placeholder="Email" style="width:100%;padding:15px;margin:10px 0;border:none;border-radius:10px;font-size:16px"/><input type="password" placeholder="Пароль" style="width:100%;padding:15px;margin:10px 0;border:none;border-radius:10px;font-size:16px"/><button style="width:100%;padding:15px;margin:20px 0;background:#4CAF50;color:white;border:none;border-radius:10px;font-size:18px;font-weight:bold;cursor:pointer">Войти</button></div></div></div></body></html>
+Файл 2: manifest.json
+
+{
+  "name": "Семья на связи",
+  "short_name": "СемьяСвязь",
+  "description": "Приватная семейная социальная сеть",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#2196F3",
+  "theme_color": "#2196F3",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon.png", 
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["social", "lifestyle"],
+  "lang": "ru"
+}
